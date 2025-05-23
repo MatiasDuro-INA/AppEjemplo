@@ -10,6 +10,8 @@ export default function HomeTabsScreen() {
         {href: '/ejemplos/flatlist', label: 'Ir a FlatListUser'},
         {href: '/ejemplos/touchables', label: 'Ir a Touchables'},
         {href: '/ejemplos/demo', label: 'Ir a Demo'},
+        {href: '/productos', label: 'Ir a Productos'},
+
     ]
 
 

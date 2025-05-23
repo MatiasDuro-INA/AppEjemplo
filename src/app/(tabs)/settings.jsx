@@ -1,10 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
+import { useAuth } from '../../contexts/authContext'
 
 export default function SettingsScreen() {
+
+  const { logout} = useAuth()
+
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Hola Settings</Text>
+        <Button title='log out' onPress={logout}/>
     </View>
   )
 }
