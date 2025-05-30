@@ -2,6 +2,7 @@ import { Stack, useRouter } from "expo-router";
 import { useEffect } from "react";
 import { AuthProvider, useAuth } from "../contexts/authContext";
 import { ProductProvider } from "../contexts/productContext";
+import { SedeProvider } from "../contexts/sedeContext";
 
 
 
@@ -41,7 +42,9 @@ export default function LayoutPrincipal() {
 
         <AuthProvider>
             <ProductProvider>
+                <SedeProvider>
                 <ProtectedLayout/>
+                </SedeProvider>
             </ProductProvider>
         </AuthProvider>
 

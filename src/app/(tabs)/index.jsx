@@ -1,9 +1,11 @@
 import { Link } from 'expo-router'
 import React from 'react'
 import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { useAuth } from '../../contexts/authContext'
 
 export default function HomeTabsScreen() {
 
+    const {isAuth, user} = useAuth()
 
     const links = [
         {href: '/ejemplos/scroll', label: 'Ir a ScrollUser'},
@@ -11,8 +13,18 @@ export default function HomeTabsScreen() {
         {href: '/ejemplos/touchables', label: 'Ir a Touchables'},
         {href: '/ejemplos/demo', label: 'Ir a Demo'},
         {href: '/productos', label: 'Ir a Productos'},
+        {href: '/maps', label: 'Ir a Mapa'},
 
     ]
+
+
+    console.log("User: ", user);
+    
+
+    if(isAuth && user?.admin){
+        links.push({href: '/createProduct', label: 'Crear Producto'})
+        links.push({href: '/add-sede', label: 'Agregar Sede'})
+    }
 
 
   return (
@@ -50,7 +62,9 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 25,
         borderRadius: 8,
-        marginBottom: 15
+        marginBottom: 15,
+        minWidth: 200,
+        alignItems: 'center'
     },
     buttonText:{
         fontSize: 18,

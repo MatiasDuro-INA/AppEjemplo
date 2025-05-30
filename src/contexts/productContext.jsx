@@ -20,11 +20,29 @@ export const ProductProvider = ({children}) => {
 
         cargarProductos()
     }, [])
-    
+
+    const createProduct = async ({title, description, price, imageUri}) => {
+
+
+        console.log("imageUrl: ", imageUri);
+        
+
+        const newProduct = {
+            id: Date.now(),
+            title,
+            description,
+            price: Number(price),
+            image: imageUri
+        }
+
+
+        setProductos(prev => [newProduct, ...prev])
+    }
+     
 
 
     return (
-        <ProductContext.Provider value={{productos, loading}}>
+        <ProductContext.Provider value={{productos, loading, createProduct}}>
             {children}
         </ProductContext.Provider>
     )

@@ -22,7 +22,7 @@ export default function DetalleProducto() {
     if (!producto) {
         return (
         <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="red" />
+            <ActivityIndicator size="large" color="red"/>
             <Text style={{ marginTop: 10, fontSize: 26 }}>Cargando Producto...</Text>
         </View>
         )
